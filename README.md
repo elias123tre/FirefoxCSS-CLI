@@ -4,9 +4,28 @@ A command-line tool to install and manage Firefox userstyles seamlessly.
 
 ## Get started
 
-1. [Download CLI executable](https://github.com/elias123tre/FirefoxCSS-CLI/releases) for your operating system
-2. Call executable from the command-line: `./firefoxcss_cli.exe`
-3. Optional: Install a nice looking theme from [FirefoxCSS Store](https://firefoxcss-store.github.io/)
+> Example installation of [MaterialFox](https://github.com/muckSponge/MaterialFox). Run the following commands in console/terminal.
+
+1. Enable custom userstyles for Firefox
+
+   ```terminal
+   npx firefoxcss-cli enable
+   ```
+
+2. Install theme from GitHub URL
+
+   ```terminal
+   npx firefoxcss-cli install https://github.com/muckSponge/MaterialFox
+   ```
+
+3. Activate the theme
+   ```terminal
+   npx firefoxcss-cli activate MaterialFox
+   ```
+
+Find a collection of beautiful Firefox themes at [FirefoxCSS Store](https://firefoxcss-store.github.io/)
+
+> Note: Installation without executable requires [Node.js](https://nodejs.org) 14.x or higher
 
 ## Features
 
@@ -21,9 +40,9 @@ A command-line tool to install and manage Firefox userstyles seamlessly.
 ## Usage
 
 ```
-firefoxcss_cli - a command-line tool to install and manage Firefox userstyles seamlessly
+firefoxcss-cli - a command-line tool to install and manage Firefox userstyles seamlessly
 
-Usage: firefoxcss_cli COMMAND [ arguments ] [...options]
+Usage: firefoxcss-cli COMMAND [ arguments ] [...options]
 
 Commands:
     enable
@@ -49,22 +68,36 @@ Options:
     -h --help      Display this help message.
 
 Examples:
-    firefoxcss_cli enable
+    firefoxcss-cli enable
 
-    firefoxcss_cli install https://github.com/muckSponge/MaterialFox
+    firefoxcss-cli install https://github.com/muckSponge/MaterialFox
 
-    firefoxcss_cli activate MaterialFox
+    firefoxcss-cli activate MaterialFox
 ```
 
-## Building locally
+## Running with Node.js
+
+```terminal
+git clone https://github.com/elias123tre/FirefoxCSS-CLI
+node FirefoxCSS-CLI
+```
+
+## Using precompiled executable
+
+1. [Download CLI executable](https://github.com/elias123tre/FirefoxCSS-CLI/releases) for your operating system from releases
+2. Call executable from the command-line: ex. `./firefoxcss-cli.exe`
+
+## Compiling executable locally
 
 1.  Clone the repository:  
     `git clone https://github.com/elias123tre/FirefoxCSS-CLI`
-2.  Build executable for current system:  
+2.  Go to cloned repository:  
+    `cd FirefoxCSS-CLI`
+3.  Build executable for current system (specify custom [`pkg`](https://www.npmjs.com/package/pkg) build settings in `package.json`):  
     `npm run build`
-3.  Run CLI executable:  
-    Windows: `./firefoxcss_cli.exe`  
-    Unix: `./firefoxcss_cli`
+4.  Run CLI executable:  
+    Windows: `./firefoxcss-cli.exe`  
+    Unix: `./firefoxcss-cli`
 
 ## Node.js API
 
@@ -72,8 +105,13 @@ The `manager.js` file exports the `Profile` class that contains methods for each
 
 **Example implementation:**
 
+```terminal
+npm install firefoxcss-cli
+```
+
 ```js
-const { Profile } = require("./manager")
+// example.js
+const { Profile } = require("FirefoxCSS-CLI/manager")
 Profile.install("https://github.com/muckSponge/MaterialFox")
 Profile.activate("MaterialFox")
 ```
