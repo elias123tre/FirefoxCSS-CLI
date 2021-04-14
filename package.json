@@ -1,12 +1,14 @@
 {
   "name": "firefoxcss_cli",
-  "version": "0.1.0",
-  "description": "Command line interface for FirefoxCSS Manager",
+  "version": "0.1.1",
+  "description": "A command-line tool to install and manage Firefox userstyles seamlessly.",
   "main": "index.js",
-  "repository": "https://github.com/elias123tre",
+  "repository": "https://github.com/elias123tre/FirefoxCSS-CLI",
   "author": "Elias Floreteng",
   "license": "MIT",
-  "bin": "index.js",
+  "bin": {
+    "firefoxcss_cli": "index.js"
+  },
   "pkg": {
     "targets": [
       "node14"
@@ -15,12 +17,14 @@
   "scripts": {
     "cli": "npx .",
     "build": "pkg .",
+    "types": "tsc manager.js --declaration --allowJs --emitDeclarationOnly --outDir types",
     "open": "powershell.exe start (node index.js profile)"
   },
   "dependencies": {
     "ini": "^2.0.0"
   },
   "devDependencies": {
-    "pkg": "^4.5.1"
+    "pkg": "^4.5.1",
+    "typescript": "^3.4.3"
   }
 }

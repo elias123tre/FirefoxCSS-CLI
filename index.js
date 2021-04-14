@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-const fs = require("fs")
 const { Profile } = require("./manager")
 const [command, ...args] = process.argv.slice(2)
 
