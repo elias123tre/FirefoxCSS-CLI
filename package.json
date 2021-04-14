@@ -1,0 +1,26 @@
+{
+  "name": "firefoxcss_cli",
+  "version": "0.1.0",
+  "description": "Command line interface for FirefoxCSS Manager",
+  "main": "index.js",
+  "repository": "https://github.com/elias123tre",
+  "author": "Elias Floreteng",
+  "license": "MIT",
+  "bin": "index.js",
+  "pkg": {
+    "targets": [
+      "node14"
+    ]
+  },
+  "scripts": {
+    "cli": "npx .",
+    "build": "pkg .",
+    "open": "powershell.exe start (node index.js profile)"
+  },
+  "dependencies": {
+    "ini": "^2.0.0"
+  },
+  "devDependencies": {
+    "pkg": "^4.5.1"
+  }
+}
