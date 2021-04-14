@@ -36,6 +36,7 @@ Find a collection of beautiful Firefox themes at [FirefoxCSS Store](https://fire
 - [ ] Multiple active themes
 - [ ] Incemental theme updates
 - [ ] Custom advanced prefrences (about:config) from theme `user.js` file
+- [ ] Works without git (using simple-git)
 
 ## Usage
 
@@ -79,7 +80,9 @@ Examples:
 
 ```terminal
 git clone https://github.com/elias123tre/FirefoxCSS-CLI
-node FirefoxCSS-CLI
+cd FirefoxCSS-CLI
+npm install
+node index
 ```
 
 ## Using precompiled executable
@@ -93,9 +96,11 @@ node FirefoxCSS-CLI
     `git clone https://github.com/elias123tre/FirefoxCSS-CLI`
 2.  Go to cloned repository:  
     `cd FirefoxCSS-CLI`
-3.  Build executable for current system (specify custom [`pkg`](https://www.npmjs.com/package/pkg) build settings in `package.json`):  
+3.  Install dependencies:  
+    `npm install`
+4.  Build executable for current system (specify custom [`pkg`](https://www.npmjs.com/package/pkg) build settings in `package.json`):  
     `npm run build`
-4.  Run CLI executable:  
+5.  Run CLI executable:  
     Windows: `./firefoxcss-cli.exe`  
     Unix: `./firefoxcss-cli`
 

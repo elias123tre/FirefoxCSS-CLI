@@ -1,6 +1,6 @@
 {
   "name": "firefoxcss-cli",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A command-line tool to install and manage Firefox userstyles seamlessly.",
   "main": "index.js",
   "repository": "https://github.com/elias123tre/FirefoxCSS-CLI",
