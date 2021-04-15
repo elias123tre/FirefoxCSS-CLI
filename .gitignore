@@ -1,4 +1,6 @@
 node_modules
+package-lock.json
 types
 firefoxcss_cli.exe
 firefoxcss-cli.exe
+.env
