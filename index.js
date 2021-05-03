@@ -26,6 +26,10 @@ Commands:
         Echo directory for default Firefox profile.
     current
         Echo current theme properties or null.
+    path [THEME]
+        Echo directory for a theme or the activated one
+    new NAME [REPO]
+        Create a new theme.
 
 Options:
     -h --help      Display this help message.
@@ -58,7 +62,7 @@ let commands = {
     console.log(profile.profileDir)
   },
   current: () => {
-    console.log("Current theme:", profile.theme)
+    console.log("Current theme:", JSON.stringify(profile.theme))
   },
   install: (url) => {
     verifyArgs("install", { url })
@@ -96,6 +100,13 @@ let commands = {
   enable: () => {
     profile.enable()
   },
+  path: (theme) => {
+    console.log(profile.path(theme))
+  },
+  new: (name, repo) => {
+    verifyArgs("new", { name /*, repo*/ })
+    profile.init(name, repo)
+  },
   "-h": help,
   "--help": help,
 }
@@ -103,7 +114,11 @@ let commands = {
 if (require.main === module) {
   let func = commands[command]
   if (func) {
-    func(...args)
+    try {
+      func(...args)
+    } catch (err) {
+      console.error(err.toString())
+    }
   } else {
     if (command) console.error("Unknown command:", command)
     console.log(

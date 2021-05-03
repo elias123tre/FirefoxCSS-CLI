@@ -246,6 +246,46 @@ class Profile {
       console.error("user.js file does already exist, overwrite it by passing `force = true`")
     }
   }
+
+  /**
+   * Get path of a theme or the currently active one
+   * @param {string=} theme the theme to get profile path to
+   * @return {string} path to theme or null if theme doesn't exist
+   */
+  path(theme) {
+    if (theme) {
+      let themepath = path.join(this.profileDir, this.PREFIX + theme)
+      if (fs.existsSync(themepath)) {
+        return themepath
+      } else {
+        console.error(`No theme with the name ${theme}`)
+        return null
+      }
+    }
+    return path.join(this.profileDir, "chrome")
+  }
+
+  /**
+   * Create a folder for a new theme
+   * @param {string} name the name of the new theme
+   * @param {string=} repo repository link to the theme, for updates
+   */
+  init(name, repo) {
+    let newFolder = path.join(this.profileDir, this.PREFIX + name)
+    if (!fs.existsSync(newFolder)) {
+      fs.mkdirSync(newFolder)
+      let config = { name: name }
+      if (repo) {
+        config.repo = repo
+      }
+      fs.writeFileSync(path.join(newFolder, this.THEMEINI), ini.stringify(config))
+      let userchrome = path.join(newFolder, "userchrome.css")
+      fs.writeFileSync(userchrome, "")
+      console.log(`New blank theme created, add styles to ${userchrome}`)
+    } else {
+      console.error(`Theme with this name already exists: ${name}`)
+    }
+  }
 }
 
 if (require.main === module) {

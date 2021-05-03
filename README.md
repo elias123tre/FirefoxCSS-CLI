@@ -64,6 +64,10 @@ Commands:
         Echo directory for default Firefox profile.
     current
         Echo current theme properties or null.
+    path [THEME]
+        Echo directory for a theme or the activated one
+    new NAME [REPO]
+        Create a new theme.
 
 Options:
     -h --help      Display this help message.
@@ -196,5 +200,17 @@ export class Profile {
    * @param {boolean=} force overwrite existing user.js file in profile folder
    */
   enable(force?: boolean | undefined): void
+  /**
+   * Get path of a theme or the currently active one
+   * @param {string=} theme the theme to get profile path to
+   * @return {string} path to theme or null if theme doesn't exist
+   */
+  path(theme?: string | undefined): string
+  /**
+   * Create a folder for a new theme
+   * @param {string} name the name of the new theme
+   * @param {string=} repo repository link to the theme, for updates
+   */
+  init(name: string, repo?: string | undefined): void
 }
 ```
