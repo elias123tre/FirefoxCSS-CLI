@@ -67,7 +67,7 @@ Commands:
     path [THEME]
         Echo directory for a theme or the activated one
     new NAME [REPO]
-        Create a new theme.
+        Create a new theme
 
 Options:
     -h --help      Display this help message.

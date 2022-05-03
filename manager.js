@@ -279,7 +279,7 @@ class Profile {
         config.repo = repo
       }
       fs.writeFileSync(path.join(newFolder, this.THEMEINI), ini.stringify(config))
-      let userchrome = path.join(newFolder, "userchrome.css")
+      let userchrome = path.join(newFolder, "userChrome.css")
       fs.writeFileSync(userchrome, "")
       console.log(`New blank theme created, add styles to ${userchrome}`)
     } else {
