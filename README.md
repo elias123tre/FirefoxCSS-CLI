@@ -2,6 +2,8 @@
 
 A command-line tool to install and manage Firefox userstyles seamlessly.
 
+> A more complete CLI tool to manage FirefoxCSS Themes: https://github.com/ewen-lbh/ffcss
+
 ## Get started
 
 > Example installation of [MaterialFox](https://github.com/muckSponge/MaterialFox). Run the following commands in console/terminal.
